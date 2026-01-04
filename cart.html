@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Cart</title>
+</head>
+<body>
+
+<h1>Your Cart 🛒</h1>
+<div id="cart-container"></div>
+
+<script>
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+const container = document.getElementById("cart-container");
+
+if (!container) {
+  console.error("cart-container not found");
+}
+
+if (cart.length === 0) {
+  container.innerHTML = "<p>Cart is empty 😢</p>";
+} else {
+  cart.forEach(item => {
+    container.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.image}" style="width:100px;border-radius:8px;">
+        <div>
+          <h3>${item.name}</h3>
+          <p>${item.price}</p>
+          <p>Quantity: ${item.quantity}</p>
+        </div>
+      </div>
+    `;
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SP Dress Rental</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ====== RESET & BODY ====== */
+    * {margin:0;padding:0;box-sizing:border-box;font-family:"Inter",Arial,sans-serif;}
+
+
+
+    body{background:#F5F1EB;
+      color:#0F172A;
+      scroll-behavior:smooth;}
+
+    /* ====== NAVBAR ====== */
+    .navbar{height:70px;padding:0 80px;display:flex;justify-content:space-between;align-items:center;background:#0F172A;position:sticky;top:0;z-index:100;}
+    .logo{color:#C7A46D;font-size:24px;font-weight:600;letter-spacing:3px;}
+    nav a{margin-left:32px;text-decoration:none;font-size:14px;color:#E5E7EB;position:relative;transition:.3s;}
+    nav a::after{content:"";position:absolute;bottom:-6px;left:0;width:0;height:2px;background:#C7A46D;transition:.3s;}
+    nav a:hover::after{width:100%;}
+    .nav-cta{padding:10px 26px;border-radius:50px;border:1px solid #C7A46D;color:#C7A46D;font-weight:500;}
+    .nav-cta:hover{background:#C7A46D;color:#0F172A;}
+
+    /* ====== HERO ====== */
+    .hero{display:flex;justify-content:space-between;align-items:center;padding:100px;gap:80px;background:linear-gradient(120deg,#0F172A 0%,#0F172A 55%,#F5F1EB 55%);}
+    .hero-left{max-width:500px;color:#F5F1EB;}
+    .hero-tag{font-size:12px;letter-spacing:3px;color:#C7A46D;}
+    .hero-left h1{font-size:64px;line-height:1.05;margin:20px 0;font-weight:500;}
+    .hero-left h1 span{color:#C7A46D;}
+    .hero-left p{font-size:16px;line-height:1.7;margin-bottom:30px;opacity:.9;}
+    .hero-actions{display:flex;gap:16px;}
+    .btn{padding:16px 36px;text-decoration:none;font-size:14px;letter-spacing:1px;transition:.3s;border-radius:50px;font-weight:500;}
+    .primary{background:#C7A46D;color:#0F172A;}
+    .primary:hover{background:#B79459;transform:translateY(-4px);}
+    .secondary{border:1px solid #F5F1EB;color:#F5F1EB;}
+    .secondary:hover{background:#F5F1EB;color:#0F172A;}
+
+    /* HERO IMAGES */
+    .hero-right{position:relative;width:450px;height:520px;}
+    .hero-image{position:absolute;border-radius:20px;overflow:hidden;transition:.4s ease;box-shadow:0 25px 50px rgba(0,0,0,.3);}
+    .hero-image img{width:100%;height:100%;object-fit:cover;}
+    .hero-img-1{width:250px;height:360px;top:0;left:90px;}
+    .hero-img-2{width:220px;height:300px;bottom:0;left:0;}
+    .hero-img-3{width:220px;height:300px;bottom:40px;right:0;}
+    .hero-image:hover{transform:translateY(-12px) scale(1.05);z-index:10;}
+
+
+
+
+/* SECTION TITLE */
+.collection h2 {
+  color: #b69863;
+  font-size: 45px;
+  text-align: center;
+  text-shadow: 0 0 5px #d4b073;
+  margin: 70px;
+}
+
+/* GRID – 5 PER ROW */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 28px;
+}
+
+/* CARD */
+.fashion-card {
+  position: relative;
+  height: 400px;
+  width: 280px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.fashion-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(12,20,36,0.95),
+    rgba(12,20,36,0.4)
+  );
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.overlay h3 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.overlay span {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #d4b073;
+  margin-bottom: 12px;
+}
+
+/* PRICE */
+.price {
+  font-size: 22px;
+  font-weight: 600;
+  color: #d4b073;
+  margin-bottom: 12px;
+}
+
+.price small {
+  font-size: 12px;
+  color: #bfa06a;
+}
+
+/* TEXT */
+.overlay p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #cfcfcf;
+  margin-bottom: 20px;
+}
+
+/* BUTTON */
+.overlay button {
+  align-self: flex-start;
+  background: #d4b073;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* HOVER EFFECT */
+.fashion-card:hover img {
+  transform: scale(1.1);
+}
+
+.fashion-card:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1400px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1100px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 40px 20px;
+  }
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* IMPORT DIFFERENT FONT */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
+
+/* ABOUT SECTION */
+.about-section {
+  background: linear-gradient(180deg, #0a1020, #0f1c35);
+  padding: 140px 100px;
+  margin: 50px 0 50px;
+  border-radius: 15px;
+  box-shadow: 0 0 8px  #0f1c35 ;
+}
+
+/* CONTAINER */
+.about-container {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+}
+
+/* TEXT */
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: #d4b073;
+  margin-bottom: 18px;
+}
+
+.about-text .intro {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.about-text p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #cfcfcf;
+  margin-bottom: 18px;
+}
+
+/* SERVICES GRID */
+.about-services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* SERVICE BOX */
+.service-box {
+  background: #0c1424;
+  padding: 26px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  border: 1px solid rgba(212,176,115,0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #d4b073;
+  margin-bottom: 10px;
+}
+
+.service-box p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cfcfcf;
+}
+
+/* HOVER EFFECT */
+.service-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 70px 20px;
+  }
+
+  .about-text h2 {
+    font-size: 34px;
+  }
+
+  .about-services {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* REVIEWS SECTION */
+.reviews-section {
+  background: #0c1424;
+  padding: 100px 60px;
+  text-align: center;
+  margin: 50px 0 50px ;
+  border-radius: 15px;
+}
+
+/* TITLE */
+.reviews-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  color: #d4b073;
+  margin-bottom: 10px;
+}
+
+.reviews-subtitle {
+  font-size: 15px;
+  color: #cfcfcf;
+  margin-bottom: 60px;
+}
+
+/* GRID */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 26px;
+}
+
+/* CARD */
+.review-card {
+  background: linear-gradient(180deg, #0f1c35, #0a1020);
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  border: 1px solid rgba(212,176,115,0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* STARS */
+.stars {
+  font-size: 20px;
+  color: #d4b073;
+  margin-bottom: 16px;
+}
+
+/* TEXT */
+.review-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #e0e0e0;
+  margin-bottom: 22px;
+}
+
+/* NAME */
+.review-card h4 {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.review-card span {
+  font-size: 12px;
+  color: #bfa06a;
+}
+
+/* HOVER */
+.review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.7);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1400px) {
+  .reviews-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1100px) {
+  .reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews-section {
+    padding: 70px 20px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+#reviewheading{
+  color: #b69863;
+  font-size: 45px;
+  text-align: center;
+  text-shadow: 0 0 5px #d4b073;
+}
+#aboutus{
+    color: #b69863;
+  font-size: 45px;
+  text-align: center;
+  text-shadow: 0 0 5px #d4b073;
+    margin-top: 80px;
+    scroll-margin-top:90px ;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  background: linear-gradient(180deg, #0a1020, #0f1c35);
+  padding: 100px 60px;
+  text-align: center;
+}
+
+/* TITLE */
+.contact-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  color: #d4b073;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  font-size: 15px;
+  color: #cfcfcf;
+  margin-bottom: 60px;
+}
+
+/* CONTAINER */
+.contact-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* INFO BOX */
+.contact-info {
+  background: #0c1424;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  border: 1px solid rgba(212,176,115,0.15);
+  text-align: left;
+}
+
+.contact-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: #d4b073;
+  margin-bottom: 18px;
+}
+
+.contact-info p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #cfcfcf;
+  margin-bottom: 24px;
+}
+
+.contact-info ul {
+  list-style: none;
+}
+
+.contact-info li {
+  font-size: 14px;
+  margin-bottom: 14px;
+  color: #e0e0e0;
+}
+
+/* FORM */
+.contact-form {
+  background: #0c1424;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  border: 1px solid rgba(212,176,115,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: #0a1020;
+  border: 1px solid rgba(212,176,115,0.3);
+  padding: 14px 16px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #aaa;
+}
+
+/* BUTTON */
+.contact-form button {
+  margin-top: 10px;
+  background: #d4b073;
+  border: none;
+  padding: 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* FOCUS EFFECT */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #d4b073;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 70px 20px;
+  }
+
+  .contact-section h2 {
+    font-size: 34px;
+  }
+}
+/* COMPACT FOOTER */
+.footer {
+  background: #0a1020;
+  color: #cfcfcf;
+  box-shadow: 0 -15px 30px rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 20px;
+  margin-top: 50px;
+}
+
+/* CONTAINER */
+.footer-container {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 30px;
+  padding: 0 40px;
+}
+
+/* BRAND */
+.footer-brand h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #d4b073;
+  margin-bottom: 10px;
+}
+
+.footer-brand p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* LINKS */
+.footer-links h4,
+.footer-contact h4 {
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 6px;
+}
+
+.footer-links a {
+  color: #cfcfcf;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #d4b073;
+}
+
+/* CONTACT */
+.footer-contact p {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 12px 0;
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .footer-links ul {
+    padding: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    padding: 0 10px;
+  }
+}
+#bttn{
+text-align: center;
+}
+#btnexplore{
+  height: 40px;
+  width: 140px;
+  background-color: #0f1c35;
+  color: #f6c46d;
+  margin: 20px;
+  border-radius: 25px;
+  border: none;
+}
+
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">SP</div>
+  <nav>
+      <a href="#home">Home</a>
+      <a href="#collection">Collection</a>
+      <a href="#aboutus">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="#collection" class="nav-cta">Rent Now</a>
+      <a href="cart.html" style="color:#d4b073; text-decoration:none; font-size:20px; position:relative;">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+      <span class="hero-tag">FASHION RENTAL</span>
+      <h1>
+          Dress Like <br>
+          <span>You Own the Room</span>
+      </h1>
+      <p>Rent statement dresses for weddings, parties, and events. High fashion. Zero commitment.</p>
+      <div class="hero-actions">
+          <a href="#collection" class="btn primary">Explore Collection</a>
+      </div>
+  </div>
+  <div class="hero-right">
+      <div class="hero-image hero-img-1">
+          <img src="IMG_20260104_125425.jpg">
+      </div>
+      <div class="hero-image hero-img-2">
+          <img src="IMG_20260104_125737.jpg">
+      </div>
+      <div class="hero-image hero-img-3">
+          <img src="IMG_20260104_125720.jpg">
+      </div>
+  </div>
+</section>
+
+
+<section class="collection" id="collection">
+  <h2>Signature Rental Collection</h2>
+
+  <div class="card-grid">
+
+    <!-- CARD 1 -->
+    <div class="fashion-card">
+      <img src="IMG_20260104_125754.jpg" alt="Dress 1">
+      <div class="overlay">
+        <h3>SP Fashion</h3>
+        <span>Luxury Dress Rental</span>
+        <div class="price">Rs:3000 <small>/day</small></div>
+        <p>Elegant statement dress for weddings & grand celebrations.</p>
+        <button class="add-to-cart">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="fashion-card">
+      <img src="IMG_20260104_134737.jpg" alt="Dress 2">
+      <div class="overlay">
+        <h3>SP Fashion</h3>
+        <span>Luxury Dress Rental</span>
+        <div class="price">Rs:4000 <small>/day</small></div>
+        <p>Modern silhouettes curated for premium occasions.</p>
+        <button class="add-to-cart">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="fashion-card">
+      <img src="IMG_20260104_134749.jpg" alt="Dress 3">
+      <div class="overlay">
+        <h3>SP Fashion</h3>
+        <span>Luxury Dress Rental</span>
+        <div class="price">Rs:3500 <small>/day</small></div>
+        <p>Own the room without owning the dress.</p>
+        <button class="add-to-cart">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="fashion-card">
+      <img src="IMG_20260104_134817.jpg" alt="Dress 4">
+      <div class="overlay">
+        <h3>SP Fashion</h3>
+        <span>Luxury Dress Rental</span>
+        <div class="price">Rs:5000 <small>/day</small></div>
+        <p>High fashion made accessible for special moments.</p>
+        <button class="add-to-cart">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="fashion-card">
+      <img src="IMG_20260104_134843.jpg" alt="Dress 5">
+      <div class="overlay">
+        <h3>SP Fashion</h3>
+        <span>Luxury Dress Rental</span>
+        <div class="price">Rs:4500 <small>/day</small></div>
+        <p>Timeless elegance for unforgettable events.</p>
+        <button class="add-to-cart">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="fashion-card">
+      <img src="IMG_20260104_134946.jpg" alt="Dress 6">
+      <div class="overlay">
+        <h3>SP Fashion</h3>
+        <span>Luxury Dress Rental</span>
+        <div class="price">Rs:6000 <small>/day</small></div>
+        <p>Designer styles curated for modern celebrations.</p>
+        <button class="add-to-cart">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="fashion-card">
+      <img src="IMG_20260104_135006.jpg" alt="Dress 7">
+      <div class="overlay">
+        <h3>SP Fashion</h3>
+        <span>Luxury Dress Rental</span>
+        <div class="price">Rs:3000 <small>/day</small></div>
+        <p>Step into sophistication and grace.</p>
+        <button class="add-to-cart">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- CARD 8 -->
+    <div class="fashion-card">
+      <img src="IMG_20260104_125720.jpg" alt="Dress 8">
+      <div class="overlay">
+        <h3>SP Fashion</h3>
+        <span>Luxury Dress Rental</span>
+        <div class="price">Rs:4000 <small>/day</small></div>
+        <p>Fashion-forward rentals for standout moments.</p>
+        <button class="add-to-cart">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- CARD 9 -->
+    <div class="fashion-card">
+      <img src="IMG_20260104_125737.jpg" alt="Dress 9">
+      <div class="overlay">
+        <h3>SP Fashion</h3>
+        <span>Luxury Dress Rental</span>
+        <div class="price">Rs:5500<small>/day</small></div>
+        <p>Elite couture for once-in-a-lifetime events.</p>
+        <button class="add-to-cart">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- CARD 10 -->
+    <div class="fashion-card">
+      <img src="IMG_20260104_125425.jpg" alt="Dress 10">
+      <div class="overlay">
+        <h3>SP Fashion</h3>
+        <span>Luxury Dress Rental</span>
+        <div class="price"> Rs:4500<small>/day</small></div>
+        <p>Minimal, refined, and timeless fashion.</p>
+        <button class="add-to-cart">ADD TO CART</button>
+      </div>
+    </div>
+
+  </div>
+<div id="bttn">
+  <a href="collection.html"><button id="btnexplore">Explore more</button></a>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+
+ <h1 id="aboutus">ABOUT US</h1>
+<section class="about-section">
+
+  <div class="about-container" id="about">
+
+    <div class="about-text">
+      <h2>About SP Fashion Rental</h2>
+      <p class="intro">
+        Fashion should be experienced, not owned.
+      </p>
+
+      <p>
+        <strong>SP Fashion Rental</strong> offers premium designer dresses for
+        weddings, parties, and special occasions. We believe luxury fashion
+        should be accessible, sustainable, and effortless.
+      </p>
+
+      <p>
+        From elegant ethnic wear to modern statement pieces, our curated
+        collection allows you to dress with confidence — without long-term
+        commitment.
+      </p>
+    </div>
+
+    <div class="about-services">
+      <div class="service-box">
+        <h3>Luxury Rentals</h3>
+        <p>High-end dresses curated for weddings, parties, and elite events.</p>
+      </div>
+
+      <div class="service-box">
+        <h3>Affordable Pricing</h3>
+        <p>Premium fashion at a fraction of the retail cost.</p>
+      </div>
+
+      <div class="service-box">
+        <h3>Zero Commitment</h3>
+        <p>Rent, wear, return — no storage, no stress.</p>
+      </div>
+
+      <div class="service-box">
+        <h3>Curated Styling</h3>
+        <p>Each piece is handpicked to make you own the room.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- REVIEWS SECTION -->
+ <h1 id="reviewheading">REVIEWS</h1>
+<section class="reviews-section" id="reviews">
+
+  <h2>What Our Customers Say</h2>
+  <p class="reviews-subtitle">
+    Trusted by fashion lovers for unforgettable moments
+  </p>
+
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">
+        Absolutely stunning dresses! I received so many compliments at my
+        sister’s wedding. SP Fashion made it effortless and affordable.
+      </p>
+      <h4>Riya Sharma</h4>
+      <span>Wedding Guest</span>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">
+        The quality was top-notch and the fitting was perfect. Loved the
+        luxury feel without the heavy price tag.
+      </p>
+      <h4>Ananya Patel</h4>
+      <span>Engagement Party</span>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">
+        SP Fashion Rental is a game changer! Beautiful designs and
+        super easy rental process.
+      </p>
+      <h4>Neha Verma</h4>
+      <span>Birthday Celebration</span>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">
+        Elegant, classy, and affordable. I’ll definitely rent again for
+        future events.
+      </p>
+      <h4>Simran Kaur</h4>
+      <span>Cocktail Party</span>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">
+        The collection is amazing and well maintained. Renting from SP
+        Fashion made me feel confident and stylish.
+      </p>
+      <h4>Pooja Mehta</h4>
+      <span>Reception Event</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+
+  <h2>Get in Touch</h2>
+  <p class="contact-subtitle">
+    Let us help you find the perfect dress for your occasion
+  </p>
+
+  <div class="contact-container">
+
+    <!-- CONTACT INFO -->
+    <div class="contact-info">
+      <h3>SP Fashion Rental</h3>
+
+      <p>
+        Have a question about rentals, pricing, or availability?
+        We’d love to hear from you.
+      </p>
+
+      <ul>
+        <li><strong>Email:</strong> spfashion@gmail.com</li>
+        <li><strong>Phone:</strong> +91 98765 43210</li>
+        <li><strong>Location:</strong> Mumbai, India</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="text" placeholder="Occasion (Wedding, Party...)" required>
+      <textarea placeholder="Your Message" rows="4"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- BRAND -->
+    <div class="footer-brand">
+      <h3>SP Fashion Rental</h3>
+      <p>
+        Luxury dress rentals for weddings, parties,
+        and unforgettable moments.
+      </p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>Email: spfashion@gmail.com</p>
+      <p>Phone: +91 98765 43210</p>
+      <p>Sukkur, Pakistan</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 SP Fashion Rental. All rights reserved.</p>
+  </div>
+
+</footer>
+
+<script>
+  
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href'))
+        .scrollIntoView({
+          behavior: 'smooth'
+        });
+    });
+  });  
+  
+  
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.querySelectorAll(".add-to-cart").forEach(button => {
+    button.addEventListener("click", () => {
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const card = button.closest(".fashion-card");
+
+      const item = {
+        name: card.querySelector("h3").innerText,
+        price: card.querySelector(".price").innerText,
+        image: card.querySelector("img").src,
+        quantity: 1
+      };
+
+      cart.push(item);
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      alert("Item added to cart 🛒");
+    });
+  });
+
+});
+</script>
+
+
+
+
+</body>
+</html>

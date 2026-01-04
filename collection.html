@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  .fashion-card {
+  position: relative;
+  height: 360px;
+  width: 250px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+  background: white; /* dark background fallback */
+  color: #cfcfcf;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fashion-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(12,20,36,0.95),
+    rgba(12,20,36,0.4)
+  );
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.overlay h3 {
+  font-size: 20px;
+  margin-bottom: 4px;
+  color: #d4b073;
+}
+
+.overlay span {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #d4b073;
+  margin-bottom: 12px;
+}
+
+/* PRICE */
+.price {
+  font-size: 22px;
+  font-weight: 600;
+  color: #d4b073;
+  margin-bottom: 12px;
+}
+
+.price small {
+  font-size: 12px;
+  color: #bfa06a;
+}
+
+/* TEXT */
+.overlay p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #cfcfcf;
+  margin-bottom: 20px;
+}
+
+/* BUTTON */
+.overlay button {
+  align-self: flex-start;
+  background: #d4b073;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #0c1424;
+  transition: background 0.3s ease;
+}
+
+.overlay button:hover {
+  background: #bfa06a;
+}
+
+/* HOVER EFFECT */
+.fashion-card:hover img {
+  transform: scale(1.1);
+}
+
+.fashion-card:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Container for cards grid */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  padding: 20px;
+  background-color: #0c1424;
+}
+
+    </style>
+</head>
+<body>
+    <section style="text-align:center; padding: 40px 20px; background-color: #0c1424; color: #d4b073; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <h1 style="font-size: 36px; margin-bottom: 12px;">Our Exclusive Collection</h1>
+  <p style="font-size: 18px; color: #bfa06a; max-width: 600px; margin: 0 auto;">
+    Discover the finest luxury dresses curated just for you. Elegance, style, and sophistication in every piece.
+  </p>
+</section>
+
+    <div class="card-grid">
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_142730.jpg" alt="Dress 1">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Luxury Dress Rental</span>
+      <div class="price">₹3,899 <small>/day</small></div>
+      <p>Step into sophistication and grace.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_142554.jpg" alt="dress2">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Elegant Evening Gown</span>
+      <div class="price">₹4,599 <small>/day</small></div>
+      <p>Timeless elegance for formal occasions.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_142521.jpg" alt="Dress 3">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Floral Summer Dress</span>
+      <div class="price">₹2,699 <small>/day</small></div>
+      <p>Light and breezy floral dress for summer events.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_142436.jpg" alt="Dress 4">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Sequin Party Dress</span>
+      <div class="price">₹4,199 <small>/day</small></div>
+      <p>Shimmering sequins perfect for party nights.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_142404.jpg" alt="Dress 5">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Classic Wrap Dress</span>
+      <div class="price">₹3,199 <small>/day</small></div>
+      <p>Flattering wrap design for elegant events.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <!-- Cards 6 to 50 -->
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_141047.jpg" alt="Dress 6">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Luxury Satin Gown</span>
+      <div class="price">₹4,799 <small>/day</small></div>
+      <p>Luxurious satin fabric for elite occasions.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_140933.jpg" alt="Dress 7">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Chic Evening Dress</span>
+      <div class="price">₹3,899 <small>/day</small></div>
+      <p>Perfect for elegant dinners and nights out.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_140356.jpg" alt="Dress 8">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Summer Floral Dress</span>
+      <div class="price">₹2,599 <small>/day</small></div>
+      <p>Fresh floral prints for warm weather events.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_140907.jpg" alt="Dress 9">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Sequin Party Dress</span>
+      <div class="price">₹4,199 <small>/day</small></div>
+      <p>Dazzle all night with this sparkling design.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_141047.jpg" alt="Dress 10">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Elegant Wrap Dress</span>
+      <div class="price">₹3,299 <small>/day</small></div>
+      <p>Simple yet stylish wrap design.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <!-- Cards 11-50 -->
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_142436.jpg" alt="Dress 11">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Glamorous Gown</span>
+      <div class="price">₹4,899 <small>/day</small></div>
+      <p>Feel glamorous and confident at any event.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+  
+  <div class="fashion-card">
+    <img src="IMG_20260104_140907.jpg" alt="Dress 12">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Boho Chic Dress</span>
+      <div class="price">₹3,499 <small>/day</small></div>
+      <p>Relaxed and stylish bohemian style.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+  
+  <div class="fashion-card">
+    <img src="IMG_20260104_140907.jpg" alt="Dress 13">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Red Carpet Ready</span>
+      <div class="price">₹5,299 <small>/day</small></div>
+      <p>Make a stunning entrance at any gala.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_134946.jpg" alt="Dress 14">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Casual Elegance</span>
+      <div class="price">₹2,999 <small>/day</small></div>
+      <p>Effortless style for casual outings.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_142521.jpg" alt="Dress 15">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Vintage Glam</span>
+      <div class="price">₹4,499 <small>/day</small></div>
+      <p>Classic style with a vintage twist.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_191939.jpg" alt="Dress 16">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Summer Breeze</span>
+      <div class="price">₹3,399 <small>/day</small></div>
+      <p>Cool and comfortable for warm days.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <!-- Card 17 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_191900.jpg" alt="Dress 17">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Midnight Elegance</span>
+      <div class="price">₹4,799 <small>/day</small></div>
+      <p>Dark and mysterious perfect for evenings.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <!-- Card 18 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_191851.jpg" alt="Dress 18">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Spring Blossom</span>
+      <div class="price">₹3,199 <small>/day</small></div>
+      <p>Floral prints that celebrate spring.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <!-- Card 19 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_191839.jpg" alt="Dress 19">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Glam Sequins</span>
+      <div class="price">₹4,299 <small>/day</small></div>
+      <p>Catch the light and shine bright.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <!-- Card 20 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_190547.jpg" alt="Dress 20">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Chic Casual</span>
+      <div class="price">₹2,899 <small>/day</small></div>
+      <p>Simple, stylish and comfortable.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+>
+
+  /
+  <!-- Card 22 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_190444.jpg" alt="Dress 22">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Red Velvet</span>
+      <div class="price">₹4,699 <small>/day</small></div>
+      <p>Rich velvet texture for special events.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+  <!-- Card 23 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_142730.jpg" alt="Dress 23">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Bohemian Spirit</span>
+      <div class="price">₹3,299 <small>/day</small></div>
+      <p>Free-spirited and artistic designs.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+<!-- Card 24 -->
+   <div class="fashion-card">
+    <img src="IMG_20260104_142554.jpg" alt="Dress 24">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Classic Elegance</span>
+      <div class="price">₹4,199 <small>/day</small></div>
+      <p>Timeless classic with modern touch.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 25 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_142521.jpg" alt="Dress 25">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Modern Minimalist</span>
+      <div class="price">₹3,799 <small>/day</small></div>
+      <p>Sleek lines and minimal design.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 26 -->
+   <div class="fashion-card">
+    <img src="IMG_20260104_142436.jpg" alt="Dress 26">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Royal Blue</span>
+      <div class="price">₹4,599 <small>/day</small></div>
+      <p>Rich blue hues for a regal look.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 27 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_142404.jpg" alt="Dress 27">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Soft Pastel</span>
+      <div class="price">₹3,499 <small>/day</small></div>
+      <p>Soft colors perfect for day events.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 28 -->
+   <div class="fashion-card">
+    <img src="IMG_20260104_141047.jpg" alt="Dress 28">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Evening Glamour</span>
+      <div class="price">₹4,799 <small>/day</small></div>
+      <p>Glamorous look for special nights.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 29 -->
+   <div class="fashion-card">
+    <img src="IMG_20260104_140933.jpg" alt="Dress 29">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Summer Casual</span>
+      <div class="price">₹2,899 <small>/day</small></div>
+      <p>Light and casual for summer days.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 30 -->
+   <div class="fashion-card">
+    <img src="IMG_20260104_140907.jpg" alt="Dress 30">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Bold and Beautiful</span>
+      <div class="price">₹4,199 <small>/day</small></div>
+      <p>Make a statement with bold design.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 31 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_190547.jpg" alt="Dress 31">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Classic Black</span>
+      <div class="price">₹3,899 <small>/day</small></div>
+      <p>The little black dress redefined.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 32 -->
+<div class="fashion-card">
+    <img src="IMG_20260104_134843.jpg" alt="Dress 32">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Retro Vibes</span>
+      <div class="price">₹3,499 <small>/day</small></div>
+      <p>Throwback style with modern twist.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 33 -->
+   <div class="fashion-card">
+    <img src="IMG_20260104_142404.jpg" alt="Dress 33">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Boho Elegance</span>
+      <div class="price">₹3,999 <small>/day</small></div>
+      <p>Relaxed yet elegant bohemian style.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 34 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_142521.jpg" alt="Dress 34">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Garden Party</span>
+      <div class="price">₹3,299 <small>/day</small></div>
+      <p>Perfect for garden and daytime events.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 35 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_191851.jpg" alt="Dress 35">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Seaside Chic</span>
+      <div class="price">₹3,899 <small>/day</small></div>
+      <p>Cool and breezy for seaside occasions.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 36 -->
+   <div class="fashion-card">
+    <img src="IMG_20260104_142554.jpg" alt="Dress 36">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Starry Night</span>
+      <div class="price">₹4,599 <small>/day</small></div>
+      <p>Glistening dress for magical evenings.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 37 -->
+   <div class="fashion-card">
+    <img src="IMG_20260104_190631.jpg" alt="Dress 37">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Sunset Glow</span>
+      <div class="price">₹3,799 <small>/day</small></div>
+      <p>Warm tones perfect for sunset events.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 38 -->
+   <div class="fashion-card">
+    <img src="IMG_20260104_190616.jpg" alt="Dress 38">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Classic Red</span>
+      <div class="price">₹4,299 <small>/day</small></div>
+      <p>Bold red for unforgettable nights.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 39 -->
+   <div class="fashion-card">
+    <img src="IMG_20260104_190444.jpg" alt="Dress 39">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Vintage Lace</span>
+      <div class="price">₹4,499 <small>/day</small></div>
+      <p>Delicate lace for timeless beauty.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 40 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_140907.jpg" alt="Dress 40">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Urban Chic</span>
+      <div class="price">₹3,599 <small>/day</small></div>
+      <p>Modern style for city life.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 41 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_142521.jpg" alt="Dress 41">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Elegant Pearl</span>
+      <div class="price">₹4,799 <small>/day</small></div>
+      <p>Pearl embellishments for grace.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 42 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_140356.jpg" alt="Dress 42">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Soft Velvet</span>
+      <div class="price">₹4,399 <small>/day</small></div>
+      <p>Luxurious velvet texture.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>
+
+   <!-- Card 43 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_134843.jpg" alt="Dress 43">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Garden Party</span>
+      <div class="price">₹3,299 <small>/day</small></div>
+      <p>Perfect for outdoor celebrations.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 44 -->
+ <div class="fashion-card">
+    <img src="IMG_20260104_140853.jpg" alt="Dress 44">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Chiffon Delight</span>
+      <div class="price">₹3,899 <small>/day</small></div>
+      <p>Light chiffon fabric for flowy style.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 45 -->
+  <div class="fashion-card">
+    <img src="IMG_20260104_134749.jpg" alt="Dress 45">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Midnight Velvet</span>
+      <div class="price">₹4,599 <small>/day</small></div>
+      <p>Dark velvet for luxurious nights.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+  <!-- Card 46 -->
+   <div class="fashion-card">
+    <img src="IMG_20260104_134843.jpg" alt="Dress 46">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Rose Gold</span>
+      <div class="price">₹4,499 <small>/day</small></div>
+      <p>Soft rose gold shimmer for glam.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+
+
+  <div class="fashion-card">
+    <img src="IMG_20260104_134843.jpg" alt="Dress 47">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Winter Elegance</span>
+      <div class="price">₹4,799 <small>/day</small></div>
+      <p>Warm, elegant dresses for cold seasons.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>  
+
+
+ <!-- Card 48  -->
+<div class="fashion-card">
+    <img src="IMG_20260104_140356.jpg" alt="Dress 48">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Silk Satin</span>
+      <div class="price">₹5,099 <small>/day</small></div>
+      <p>Luxurious silk satin for high-end events.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div>  
+
+
+  <!-- Card 50 -->
+   <div class="fashion-card">
+    <img src="IMG_20260104_140853.jpg" alt="Dress 50">
+    <div class="overlay">
+      <h3>SP Fashion</h3>
+      <span>Evening Stardust</span>
+      <div class="price">₹4,899 <small>/day</small></div>
+      <p>Shiny and elegant for evening occasions.</p>
+      <button class="add-to-cart">ADD TO CART</button>
+    </div>
+  </div> 
+
+</div>
+
+<script>
+
+localStorage.removeItem("cart");
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  document.querySelectorAll(".add-to-cart").forEach(button => {
+    button.addEventListener("click", () => {
+
+      const card = button.closest(".fashion-card");
+
+      const item = {
+        name: card.querySelector("h3").innerText,
+        price: card.querySelector(".price").innerText,
+        image: card.querySelector("img").getAttribute("src"),
+        quantity: 1
+      };
+
+      const existingItem = cart.find(i =>
+        i.name === item.name && i.image === item.image
+      );
+
+      if (existingItem) {
+  alert("Item already in cart");
+  return;
+} else {
+  cart.push(item);
+}
+
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Item added to cart 🛒");
+    });
+  });
+
+});
+</script>
+
+
+</body>
+</html>
